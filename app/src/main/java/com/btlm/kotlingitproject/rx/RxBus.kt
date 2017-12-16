@@ -2,9 +2,9 @@ package com.btlm.kotlingitproject.rx
 
 import io.reactivex.Flowable
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Consumer
 import io.reactivex.processors.FlowableProcessor
 import io.reactivex.processors.PublishProcessor
-import java.util.function.Consumer
 
 /**
  * Created by Administrator on 2017/12/15.

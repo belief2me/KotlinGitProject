@@ -18,6 +18,12 @@ class KotlinGitApplication : Application() {
 
     private var allActivities: HashSet<Activity>? = null
 
+//    val appComponent: AppComponent by lazy {
+//        DaggerAppComponent.builder()
+//                .apiModule(ApiModule())
+//                .appModule(AppModule(this))
+//                .build()
+//    }
 
 
 

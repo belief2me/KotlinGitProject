@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#fb7299</color>
+    <color name="colorPrimaryDark">#fb7299</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="line_bg">#e6e6e6</color>
+
+    <color name="window_background">#eaeaea</color>
+    <color name="item_tag_background">@color/white</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_light">#dcdcdc</color>
+    <!-- theme color -->
+    <color name="pink">#fb7299</color>
+    <color name="pink_dark">#b85671</color>
+    <color name="pink_trans">#99f0486c</color>
+    <color name="black_alpha_60">#4f000000</color>
+    <color name="black_alpha_45">#71000000</color>
+
 </resources>
