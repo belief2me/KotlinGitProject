@@ -1,13 +1,26 @@
 package com.btlm.kotlingitproject.module.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
+import com.btlm.kotlingitproject.KotlinGitApplication
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.bean.app.Splash
+import com.btlm.kotlingitproject.di.component.DaggerActivityComponent
 import com.btlm.kotlingitproject.mvp.contract.app.SplashContract
 import com.btlm.kotlingitproject.mvp.presenter.app.SplashPresenter
+import com.btlm.kotlingitproject.utils.PrefsUtils
+import com.btlm.kotlingitproject.widget.statusbar.StatusBarUtil
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.jakewharton.rxbinding2.view.RxView
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.yoyiyi.soleil.constant.Constants
+import com.yoyiyi.soleil.di.module.ActivityModule
+import kotlinx.android.synthetic.main.activity_splash.*
+import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
@@ -26,17 +39,78 @@ class SplashActivity : RxAppCompatActivity() , SplashContract.View{
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash)
+        //设置透明
+        StatusBarUtil.setTranslucent(this)
+        //防止重复实例化app
+        if(!isTaskRoot && intent.hasCategory(Intent.CATEGORY_LAUNCHER) && intent.action != null && intent.action == Intent.ACTION_MAIN){
+            finish()
+            return@onCreate
+        }
+        initInject()
+        initWidget()
+        loadData()
+
     }
+
+    /**
+     * 请求数据
+     */
+    fun loadData(){
+        mPresenter.getSplashData()
+        mPresenter.setCountDown()
+    }
+
+    /**
+     * 初始化组件
+     */
+    fun initWidget(){
+        RxView.clicks(llCountDown)
+                .throttleFirst(3, TimeUnit.SECONDS)//3秒内响应第一次发射数据
+                .compose(bindToLifecycle())
+                .subscribe { _ -> redirect() }
+    }
+
+    /**
+     * 跳转
+     */
+    fun redirect(){
+        var flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG,false)
+        flag = true
+        if(flag){
+//            startActivity(Intent(this,))
+        }else{
+
+        }
+    }
+    fun initInject(){
+        DaggerActivityComponent.builder()
+                .appComponent(KotlinGitApplication.instance.appComponent)
+                .activityModule(ActivityModule(this))
+                .build()
+                .inject(this)
+        mPresenter.attachView(this)//依赖 保持p和v生命周期一致
+    }
+
     override fun showError(msg: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        ivSplash.setImageResource(R.mipmap.ic_default_bg)
     }
 
     override fun complete() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showSplash(splash: Splash) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val urls = splash.data
+        urls.let {
+            if(it.isNotEmpty()){
+                val pos = Random().nextInt(urls.size)
+                Glide.with(this)
+                        .load(it[pos].thumb)
+                        .centerCrop()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .dontAnimate()
+                        .into(ivSplash)
+            }
+        }
     }
 
     override fun showCountDown(count: Int) {

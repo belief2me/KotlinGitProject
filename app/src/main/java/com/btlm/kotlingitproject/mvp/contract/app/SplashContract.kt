@@ -14,6 +14,7 @@ interface SplashContract {
     }
 
     interface Presenter<in T> : BaseContract.BasePresenter<T>{
+
         fun getSplashData()
 
         fun setCountDown()

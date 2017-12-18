@@ -4,6 +4,10 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.btlm.kotlingitproject.di.component.AppComponent
+import com.btlm.kotlingitproject.di.component.DaggerAppComponent
+import com.btlm.kotlingitproject.di.module.ApiModule
+import com.btlm.kotlingitproject.di.module.AppModule
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.utils.CrashHandler
 import com.btlm.kotlingitproject.utils.LogUtils
@@ -18,12 +22,12 @@ class KotlinGitApplication : Application() {
 
     private var allActivities: HashSet<Activity>? = null
 
-//    val appComponent: AppComponent by lazy {
-//        DaggerAppComponent.builder()
-//                .apiModule(ApiModule())
-//                .appModule(AppModule(this))
-//                .build()
-//    }
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent.builder()
+                .apiModule(ApiModule())
+                .appModule(AppModule(this))
+                .build()
+    }
 
 
 
