@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+               android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:contentInsetStart="@dimen/dp0"
+                app:contentInsetStart="@dimen/dp0"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:layout_height="?attr/actionBarSize">
+
+                <LinearLayout
+                    android:id="@+id/llNavigation"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_drawer_home"
+                        android:layout_height="wrap_content"/>
+                    <com.btlm.kotlingitproject.widget.CircleImageView
+                        android:id="@+id/toolbarUserAvatar"
+                        android:layout_marginEnd="@dimen/dp3"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:src="@mipmap/ic_user_yoyiyi"
+                        app:border_color="@color/white"
+                        app:border_width="@dimen/dp1"
+                        android:layout_width="@dimen/dp35"
+                        android:layout_height="@dimen/dp35"/>
+
+                    <TextView
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/word_size_16"
+                        android:text="soleilé›ªå¯‚"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/stlTabs"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                app:tl_indicator_height="@dimen/dp2"
+                app:tl_indicator_width="@dimen/dp40"
+                android:layout_width="match_parent"
+                app:tl_tab_space_equal="true"
+                android:layout_height="@dimen/dp48"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <com.btlm.kotlingitproject.widget.NoScrollViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_height="match_parent"/>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>

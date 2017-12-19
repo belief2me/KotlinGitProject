@@ -77,7 +77,8 @@ class SplashActivity : RxAppCompatActivity() , SplashContract.View{
         var flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG,false)
         flag = true
         if(flag){
-//            startActivity(Intent(this,))
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
         }else{
 
         }
@@ -109,11 +110,21 @@ class SplashActivity : RxAppCompatActivity() , SplashContract.View{
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into(ivSplash)
+            }else{
+                ivSplash.setImageResource(R.mipmap.ic_default_bg)
             }
-        }
+        }?:ivSplash.setImageResource(R.mipmap.ic_default_bg)
     }
 
     override fun showCountDown(count: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        tvCountDown.text = count.toString()
+        if(count == 0){
+            redirect()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.detachView()
     }
 }
