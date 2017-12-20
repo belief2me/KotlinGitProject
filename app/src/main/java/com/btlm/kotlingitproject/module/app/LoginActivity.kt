@@ -1,5 +1,6 @@
 package com.btlm.kotlingitproject.module.app
 
+import android.content.Intent
 import android.text.TextUtils
 import android.view.View
 import com.btlm.kotlingitproject.R
@@ -109,7 +110,9 @@ class LoginActivity : BaseActivity() {
         }
         PrefsUtils.getInstance().putBoolean(Constants.IS_LOGINED_FLAG,true)
         // 跳转到主界面
-//        finish()
+        startActivity(Intent(this,MainActivity::class.java))
+        finish()
+
     }
 
     override fun initToolbar() {

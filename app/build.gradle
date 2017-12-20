@@ -69,5 +69,8 @@ dependencies {
     compile 'com.github.hymanme.tagflowlayout:tagflowlayout:0.2.2'
 
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile "org.jetbrains.anko:anko:0.10.1"
+
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
 
 }

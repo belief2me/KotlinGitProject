@@ -2,6 +2,10 @@ package com.yoyiyi.soleil.network.helper
 
 
 import com.btlm.kotlingitproject.bean.app.Splash
+import com.btlm.kotlingitproject.network.api.LiveService
+import com.btlm.kotlingitproject.network.response.HttpResponse
+import com.yoyiyi.soleil.bean.live.LivePartition
+import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.network.api.AppService
 
 import io.reactivex.Flowable
@@ -14,11 +18,19 @@ import io.reactivex.Flowable
  * * 描述:RetrofitHelper 帮助类
  */
 
-class RetrofitHelper(private val appService: AppService
+class RetrofitHelper(private val appService: AppService,
+                     private val liveService: LiveService
                      ) {
 
 
     fun getSplash(): Flowable<Splash> = appService.getSplash()
+
+    fun getLivePartition() : Flowable<HttpResponse<LivePartition>> = liveService.getLivePartition()
+
+    fun getLiveRecommend() : Flowable<HttpResponse<LiveRecommend>> = liveService.getLiveRecommend()
+
+
+
 
 
 

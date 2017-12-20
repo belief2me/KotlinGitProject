@@ -1,8 +1,10 @@
 package com.btlm.kotlingitproject.di.module
 
+import com.btlm.kotlingitproject.network.api.LiveService
 import com.btlm.kotlingitproject.network.helper.OkHttpHelper
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.yoyiyi.soleil.di.qualifier.AppUrl
+import com.yoyiyi.soleil.di.qualifier.LiveUrl
 import com.yoyiyi.soleil.network.api.AppService
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
 import com.yoyiyi.soleil.network.support.ApiConstants
@@ -37,8 +39,8 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitHelper(appService: AppService): RetrofitHelper
-            = RetrofitHelper(appService)
+    fun provideRetrofitHelper(appService: AppService,liveService: LiveService): RetrofitHelper
+            = RetrofitHelper(appService,liveService)
 
     @Singleton
     @Provides
@@ -50,4 +52,16 @@ class ApiModule {
     @Provides
     fun provideAppService(@AppUrl retrofit: Retrofit): AppService
             = retrofit.create(AppService::class.java)
+
+    @Singleton
+    @Provides
+    @LiveUrl
+    fun provideLiveRetrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit
+            = createRetrofit(builder, client, ApiConstants.LIVE_BASE_URL)
+
+
+    @Singleton
+    @Provides
+    fun provideLiveService(@LiveUrl retrofit: Retrofit): LiveService
+            = retrofit.create<LiveService>(LiveService::class.java)
 }

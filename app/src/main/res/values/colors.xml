@@ -22,4 +22,9 @@
     <color name="nav_head_round_background">#FDC7D6</color>
     <color name="nav_head_image_background">#F8668D</color>
 
+    <color name="card_view_background">@color/white</color>
+    <color name="font_normal">#555555</color>
+    <color name="refresh_pink_background">#fb7299</color>
+    <color name="pink_text_color">#fb7299</color>
+
 </resources>
