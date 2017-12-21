@@ -24,7 +24,13 @@
 
     <color name="card_view_background">@color/white</color>
     <color name="font_normal">#555555</color>
+    <color name="font_gray">#656565</color>
     <color name="refresh_pink_background">#fb7299</color>
     <color name="pink_text_color">#fb7299</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_80">#FAFAFA</color>
+    <color name="bili_logo_pink_color">#fb7299</color>
+    <color name="gray">#B8B8B8</color>
+    <color name="black_alpha_30">#48000000</color>
 
 </resources>

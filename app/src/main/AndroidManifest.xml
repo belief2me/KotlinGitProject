@@ -27,6 +27,10 @@
 
         <activity android:name=".module.app.LoginActivity">
         </activity>
+        <activity android:name=".module.app.BrowerActivity">
+        </activity>
+        <activity android:name=".module.app.video.VideoDetailActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.module.home.LiveFragment
+import com.btlm.kotlingitproject.module.home.RecommendFragment
 import com.btlm.kotlingitproject.utils.AppUtils
 
 /**
@@ -21,7 +22,7 @@ class MainAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
                 //直播
                 0 -> mFragment[position] = LiveFragment.newInstance()
                 //推荐
-                1 -> mFragment[position] = LiveFragment.newInstance()
+                1 -> mFragment[position] = RecommendFragment.newInstance()
                 //追番
                 2 -> mFragment[position] = LiveFragment.newInstance()
                 //分区

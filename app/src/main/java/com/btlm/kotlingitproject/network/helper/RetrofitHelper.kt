@@ -2,8 +2,11 @@ package com.yoyiyi.soleil.network.helper
 
 
 import com.btlm.kotlingitproject.bean.app.Splash
+import com.btlm.kotlingitproject.network.api.ApiService
 import com.btlm.kotlingitproject.network.api.LiveService
 import com.btlm.kotlingitproject.network.response.HttpResponse
+import com.yoyiyi.soleil.bean.app.video.VideoDetail
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.network.api.AppService
@@ -19,7 +22,8 @@ import io.reactivex.Flowable
  */
 
 class RetrofitHelper(private val appService: AppService,
-                     private val liveService: LiveService
+                     private val liveService: LiveService,
+                     private val apiService: ApiService
                      ) {
 
 
@@ -28,6 +32,10 @@ class RetrofitHelper(private val appService: AppService,
     fun getLivePartition() : Flowable<HttpResponse<LivePartition>> = liveService.getLivePartition()
 
     fun getLiveRecommend() : Flowable<HttpResponse<LiveRecommend>> = liveService.getLiveRecommend()
+
+    fun getVideoDetail() : Flowable<VideoDetail> = appService.getVideoDetail()
+
+    fun getVideoDetailComment(): Flowable<VideoDetailComment> = apiService.getVideoDetailComment()
 
 
 

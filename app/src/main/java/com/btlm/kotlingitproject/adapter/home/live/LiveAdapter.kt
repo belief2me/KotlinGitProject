@@ -8,6 +8,7 @@ import android.widget.ImageView
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.bean.live.MulLive
 import com.btlm.kotlingitproject.ext.startAnim
+import com.btlm.kotlingitproject.module.app.BrowerActivity
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.utils.SpanUtils
 import com.bumptech.glide.Glide
@@ -41,7 +42,7 @@ class LiveAdapter(data : List<MulLive>) : BaseMultiItemQuickAdapter<MulLive,Base
                 banner.startAnim(urls)
                 banner?.setOnBannerListener { i ->
                     val bannerBean = bannerBeanList?.get(i)
-//                    BrowerActivity.startActivity(mContext, bannerBean?.link ?: "", bannerBean?.title ?: "", bannerBean?.img ?: "")
+                    BrowerActivity.startActivity(mContext, bannerBean?.link ?: "", bannerBean?.title ?: "", bannerBean?.img ?: "")
                 }
 
             }
@@ -103,7 +104,7 @@ class LiveAdapter(data : List<MulLive>) : BaseMultiItemQuickAdapter<MulLive,Base
                 recyclerView.isNestedScrollingEnabled = false
                 val layoutManager = GridLayoutManager(mContext, 2)
                 recyclerView.layoutManager = layoutManager
-//                recyclerView.adapter = LivePartitionAdapter(mulLive.partityLives!!)
+                recyclerView.adapter = LivePartitionAdapter(mulLive?.partityLives!!)
 
             }
             MulLive.TYPE_FOOTER -> {

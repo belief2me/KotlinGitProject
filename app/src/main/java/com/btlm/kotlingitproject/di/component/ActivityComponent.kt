@@ -2,6 +2,7 @@ package com.btlm.kotlingitproject.di.component
 
 import android.app.Activity
 import com.btlm.kotlingitproject.module.app.SplashActivity
+import com.btlm.kotlingitproject.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.di.scope.ActivityScope
 import dagger.Component
@@ -16,4 +17,6 @@ interface ActivityComponent {
     fun getActivity() : Activity
 
     fun inject(splashActivity: SplashActivity)
+
+    fun inject(videoDetailActivity: VideoDetailActivity)
 }
