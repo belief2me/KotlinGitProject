@@ -1,10 +1,13 @@
 package com.btlm.kotlingitproject.module.app.video
 
+import android.content.Intent
 import android.view.Menu
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.bean.app.video.VideoDetail
+import com.btlm.kotlingitproject.bean.app.video.VideoDetailComment
 import com.btlm.kotlingitproject.event.Event
 import com.btlm.kotlingitproject.module.region.BaseRegionActivity
 import com.btlm.kotlingitproject.mvp.contract.app.video.VideoDetailContract
@@ -13,8 +16,6 @@ import com.btlm.kotlingitproject.rx.RxBus
 import com.btlm.kotlingitproject.widget.statusbar.StatusBarUtil
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.yoyiyi.soleil.bean.app.video.VideoDetail
-import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
 import kotlinx.android.synthetic.main.activity_video_detail1.*
 import javax.annotation.Nullable
 
@@ -87,7 +88,7 @@ class VideoDetailActivity : BaseRegionActivity<VideoDetailPresenter,Nullable>(),
 
     override fun initFragment() {
         mFragment.add(SummaryFragment.newInstance())
-        mFragment.add(SummaryFragment.newInstance())
+        mFragment.add(CommentFragment.newInstance())
     }
 
     override fun initViewPager() {
@@ -130,7 +131,7 @@ class VideoDetailActivity : BaseRegionActivity<VideoDetailPresenter,Nullable>(),
     override fun initWidget() {
         super.initWidget()
         fab.setOnClickListener {
-//            startActivity(Intent(this, VideoPlayerActivity::class.java))
+            startActivity(Intent(this, VideoPlayerActivity::class.java))
         }
         // initFAB();
         visible(pw_loading)

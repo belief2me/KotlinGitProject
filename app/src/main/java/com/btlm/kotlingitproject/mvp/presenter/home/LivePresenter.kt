@@ -1,12 +1,12 @@
 package com.btlm.kotlingitproject.mvp.presenter.home
 
 import com.btlm.kotlingitproject.base.RxPresenter
+import com.btlm.kotlingitproject.bean.live.LivePartition
 import com.btlm.kotlingitproject.bean.live.MulLive
 import com.btlm.kotlingitproject.mvp.contract.home.LiveContract
+import com.btlm.kotlingitproject.network.helper.RetrofitHelper
 import com.btlm.kotlingitproject.rx.handleResult
 import com.btlm.kotlingitproject.rx.rxSchedulerHelper
-import com.yoyiyi.soleil.bean.live.LivePartition
-import com.yoyiyi.soleil.network.helper.RetrofitHelper
 import javax.inject.Inject
 
 /**

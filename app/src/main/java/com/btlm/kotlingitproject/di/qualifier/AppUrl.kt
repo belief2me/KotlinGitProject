@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.di.qualifier
+package com.btlm.kotlingitproject.di.qualifier
 
 import javax.inject.Qualifier
 

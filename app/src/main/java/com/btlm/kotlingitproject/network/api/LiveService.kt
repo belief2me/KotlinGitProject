@@ -1,8 +1,8 @@
 package com.btlm.kotlingitproject.network.api
 
+import com.btlm.kotlingitproject.bean.live.LivePartition
+import com.btlm.kotlingitproject.bean.live.LiveRecommend
 import com.btlm.kotlingitproject.network.response.HttpResponse
-import com.yoyiyi.soleil.bean.live.LivePartition
-import com.yoyiyi.soleil.bean.live.LiveRecommend
 import io.reactivex.Flowable
 import retrofit2.http.GET
 

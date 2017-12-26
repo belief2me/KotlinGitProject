@@ -1,8 +1,7 @@
-package com.yoyiyi.soleil.di.module
+package com.btlm.kotlingitproject.di.module
 
 import android.app.Activity
-
-import com.yoyiyi.soleil.di.scope.ActivityScope
+import com.btlm.kotlingitproject.di.scope.ActivityScope
 
 import dagger.Module
 import dagger.Provides

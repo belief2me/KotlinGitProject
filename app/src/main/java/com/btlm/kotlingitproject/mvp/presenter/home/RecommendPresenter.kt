@@ -2,13 +2,13 @@ package com.btlm.kotlingitproject.mvp.presenter.home
 
 import com.btlm.kotlingitproject.base.BaseSubscriber
 import com.btlm.kotlingitproject.base.RxPresenter
+import com.btlm.kotlingitproject.bean.recommend.Recommend
 import com.btlm.kotlingitproject.mvp.contract.home.RecommendContract
+import com.btlm.kotlingitproject.network.helper.RetrofitHelper
 import com.btlm.kotlingitproject.rx.rxSchedulerHelper
 import com.btlm.kotlingitproject.utils.JsonUtils
 import com.google.gson.Gson
 import com.google.gson.JsonParser
-import com.yoyiyi.soleil.bean.recommend.Recommend
-import com.yoyiyi.soleil.network.helper.RetrofitHelper
 import io.reactivex.Flowable
 import javax.inject.Inject
 

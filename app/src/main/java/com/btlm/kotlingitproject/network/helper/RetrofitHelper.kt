@@ -1,15 +1,25 @@
-package com.yoyiyi.soleil.network.helper
+package com.btlm.kotlingitproject.network.helper
 
 
 import com.btlm.kotlingitproject.bean.app.Splash
+import com.btlm.kotlingitproject.bean.app.video.VideoDetail
+import com.btlm.kotlingitproject.bean.app.video.VideoDetailComment
+import com.btlm.kotlingitproject.bean.app.video.VideoPlayer
+import com.btlm.kotlingitproject.bean.bangumi.BangumiDetail
+import com.btlm.kotlingitproject.bean.bangumi.BangumiDetailComment
+import com.btlm.kotlingitproject.bean.bangumi.BangumiDetailRecommend
+import com.btlm.kotlingitproject.bean.discover.HotSearchTag
+import com.btlm.kotlingitproject.bean.live.LivePartition
+import com.btlm.kotlingitproject.bean.live.LiveRecommend
+import com.btlm.kotlingitproject.bean.region.Region
+import com.btlm.kotlingitproject.bean.region.RegionRecommend
+import com.btlm.kotlingitproject.bean.region.RegionType
+import com.btlm.kotlingitproject.bean.search.Search
 import com.btlm.kotlingitproject.network.api.ApiService
+import com.btlm.kotlingitproject.network.api.AppService
+import com.btlm.kotlingitproject.network.api.BangumiService
 import com.btlm.kotlingitproject.network.api.LiveService
 import com.btlm.kotlingitproject.network.response.HttpResponse
-import com.yoyiyi.soleil.bean.app.video.VideoDetail
-import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
-import com.yoyiyi.soleil.bean.live.LivePartition
-import com.yoyiyi.soleil.bean.live.LiveRecommend
-import com.yoyiyi.soleil.network.api.AppService
 
 import io.reactivex.Flowable
 
@@ -23,8 +33,8 @@ import io.reactivex.Flowable
 
 class RetrofitHelper(private val appService: AppService,
                      private val liveService: LiveService,
-                     private val apiService: ApiService
-                     ) {
+                     private val apiService: ApiService,
+                     private val bangumiService: BangumiService) {
 
 
     fun getSplash(): Flowable<Splash> = appService.getSplash()
@@ -37,6 +47,24 @@ class RetrofitHelper(private val appService: AppService,
 
     fun getVideoDetailComment(): Flowable<VideoDetailComment> = apiService.getVideoDetailComment()
 
+    fun getVideoPlayer(): Flowable<VideoPlayer> = appService.getVideoPlayer()
+
+    fun getBangumiDetail(): Flowable<HttpResponse<BangumiDetail>> = bangumiService.getBangumiDetail()
+
+    fun getHotSearchTag(): Flowable<HttpResponse<HotSearchTag>> = appService.getHotSearchTag()
+
+
+    fun getBangumiDetailRecommend(): Flowable<HttpResponse<BangumiDetailRecommend>> = bangumiService.getBangumiDetailRecommend()
+
+    fun getBangumiDetailComment(): Flowable<BangumiDetailComment> = apiService.getBangumiDetailComment()
+
+    fun getRegion(): Flowable<HttpResponse<List<Region>>> = appService.getRegion()
+
+    fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> = appService.getRegionRecommend(rid)
+
+    fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> = appService.getRegionType(rid)
+
+    fun getSearch(): Flowable<Search> = appService.getSearch()
 
 
 

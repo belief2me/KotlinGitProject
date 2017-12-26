@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.constant
+package com.btlm.kotlingitproject.constant
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

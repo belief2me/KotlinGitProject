@@ -1,15 +1,18 @@
 package com.btlm.kotlingitproject.di.module
 
+import com.btlm.kotlingitproject.di.qualifier.ApiUrl
+import com.btlm.kotlingitproject.di.qualifier.AppUrl
+import com.btlm.kotlingitproject.di.qualifier.BangumiUrl
+import com.btlm.kotlingitproject.di.qualifier.LiveUrl
 import com.btlm.kotlingitproject.network.api.ApiService
+import com.btlm.kotlingitproject.network.api.AppService
+import com.btlm.kotlingitproject.network.api.BangumiService
 import com.btlm.kotlingitproject.network.api.LiveService
 import com.btlm.kotlingitproject.network.helper.OkHttpHelper
+import com.btlm.kotlingitproject.network.helper.RetrofitHelper
+import com.btlm.kotlingitproject.network.support.ApiConstants
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import com.yoyiyi.soleil.di.qualifier.ApiUrl
-import com.yoyiyi.soleil.di.qualifier.AppUrl
-import com.yoyiyi.soleil.di.qualifier.LiveUrl
-import com.yoyiyi.soleil.network.api.AppService
-import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.network.support.ApiConstants
+
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -41,8 +44,8 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitHelper(appService: AppService,liveService: LiveService,apiService : ApiService): RetrofitHelper
-            = RetrofitHelper(appService,liveService,apiService)
+    fun provideRetrofitHelper(appService: AppService, liveService: LiveService, apiService : ApiService, bangumiService: BangumiService): RetrofitHelper
+            = RetrofitHelper(appService,liveService,apiService,bangumiService)
 
     @Singleton
     @Provides
@@ -78,4 +81,17 @@ class ApiModule {
     @Provides
     fun provideApiService(@ApiUrl retrofit: Retrofit): ApiService
             = retrofit.create<ApiService>(ApiService::class.java)
+
+    @Singleton
+    @Provides
+    @BangumiUrl
+    fun provideBangumiRetrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit
+            = createRetrofit(builder, client, ApiConstants.BANGUMI_BASE_URL)
+
+
+    @Singleton
+    @Provides
+    fun provideBangumiService(@BangumiUrl retrofit: Retrofit): BangumiService
+            = retrofit.create<BangumiService>(BangumiService::class.java)
+
 }

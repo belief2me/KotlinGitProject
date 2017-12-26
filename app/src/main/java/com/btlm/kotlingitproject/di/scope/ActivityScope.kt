@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.di.scope
+package com.btlm.kotlingitproject.di.scope
 
 import javax.inject.Scope
 

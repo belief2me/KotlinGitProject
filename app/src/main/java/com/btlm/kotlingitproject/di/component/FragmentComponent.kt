@@ -3,9 +3,12 @@ package com.btlm.kotlingitproject.di.component
 import android.app.Activity
 import com.btlm.kotlingitproject.di.module.FragmentModule
 import com.btlm.kotlingitproject.di.scope.FragmentScope
+import com.btlm.kotlingitproject.module.app.video.CommentFragment
 import com.btlm.kotlingitproject.module.app.video.SummaryFragment
-import com.btlm.kotlingitproject.module.home.LiveFragment
-import com.btlm.kotlingitproject.module.home.RecommendFragment
+import com.btlm.kotlingitproject.module.home.*
+import com.btlm.kotlingitproject.module.region.RegionTypeFragment
+import com.btlm.kotlingitproject.module.region.RegionTypeRecommendFragment
+import com.btlm.kotlingitproject.module.search.ArchiveFragment
 import dagger.Component
 
 /**
@@ -19,5 +22,18 @@ interface FragmentComponent {
     fun inject(liveFragment: LiveFragment)
     fun inject(recommendFragment: RecommendFragment)
     fun inject(summaryFragment: SummaryFragment)
+    fun inject(commentFragment: CommentFragment)
+
+    fun inject(chaseBangumiFragment: ChaseBangumiFragment)
+
+    fun inject(regionFragment: RegionFragment)
+
+    fun inject(regionTypeRecommendFragment: RegionTypeRecommendFragment)
+    fun inject(regionTypeFragment: RegionTypeFragment)
+
+    fun inject(dynamicFragment: DynamicFragment)
+
+    fun inject(discoverFragment: DiscoverFragment)
+    fun inject(archiveFragment : ArchiveFragment)
 
 }

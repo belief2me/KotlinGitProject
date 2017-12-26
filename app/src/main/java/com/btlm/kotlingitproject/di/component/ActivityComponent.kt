@@ -1,10 +1,14 @@
 package com.btlm.kotlingitproject.di.component
 
 import android.app.Activity
+import com.btlm.kotlingitproject.di.module.ActivityModule
+import com.btlm.kotlingitproject.di.scope.ActivityScope
 import com.btlm.kotlingitproject.module.app.SplashActivity
 import com.btlm.kotlingitproject.module.app.video.VideoDetailActivity
-import com.yoyiyi.soleil.di.module.ActivityModule
-import com.yoyiyi.soleil.di.scope.ActivityScope
+import com.btlm.kotlingitproject.module.app.video.VideoPlayerActivity
+import com.btlm.kotlingitproject.module.bangumi.BangumiDetailActivity
+import com.btlm.kotlingitproject.module.region.RegionTypeActivity
+import com.btlm.kotlingitproject.module.search.SearchActivity
 import dagger.Component
 
 /**
@@ -19,4 +23,9 @@ interface ActivityComponent {
     fun inject(splashActivity: SplashActivity)
 
     fun inject(videoDetailActivity: VideoDetailActivity)
+    fun inject(videoPlayerActivity: VideoPlayerActivity)
+    fun inject(bangumiDetailActivity: BangumiDetailActivity)
+    fun inject(regionTypeActivity: RegionTypeActivity)
+
+    fun inject(searchActivity: SearchActivity)
 }

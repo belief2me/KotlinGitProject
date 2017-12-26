@@ -1,10 +1,11 @@
-package com.yoyiyi.soleil.adapter.app.video
+package com.btlm.kotlingitproject.adapter.app.video
 
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.bean.app.video.MulSummary
 import com.btlm.kotlingitproject.utils.NumberUtils
 import com.btlm.kotlingitproject.utils.time.TimeUtils
 import com.btlm.kotlingitproject.widget.flowlayout.FlowLayout
@@ -14,7 +15,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.yoyiyi.soleil.bean.app.video.MulSummary
 import java.util.*
 
 /**

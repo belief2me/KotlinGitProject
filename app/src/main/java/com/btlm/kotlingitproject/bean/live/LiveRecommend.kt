@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.live
+package com.btlm.kotlingitproject.bean.live
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

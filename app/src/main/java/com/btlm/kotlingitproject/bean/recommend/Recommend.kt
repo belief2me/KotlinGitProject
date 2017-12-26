@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.recommend
+package com.btlm.kotlingitproject.bean.recommend
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

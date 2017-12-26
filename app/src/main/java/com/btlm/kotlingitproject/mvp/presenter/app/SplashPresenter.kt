@@ -4,8 +4,8 @@ import com.btlm.kotlingitproject.base.BaseSubscriber
 import com.btlm.kotlingitproject.base.RxPresenter
 import com.btlm.kotlingitproject.bean.app.Splash
 import com.btlm.kotlingitproject.mvp.contract.app.SplashContract
+import com.btlm.kotlingitproject.network.helper.RetrofitHelper
 import com.btlm.kotlingitproject.rx.rxSchedulerHelper
-import com.yoyiyi.soleil.network.helper.RetrofitHelper
 import io.reactivex.Flowable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

@@ -17,7 +17,8 @@ abstract class BaseInjectFragment<T : BaseContract.BasePresenter<*>> : BaseFragm
 
     val fragmentModule : FragmentModule get() = FragmentModule(this)
 
-    val fragmentComponent : FragmentComponent get() = DaggerFragmentComponent.builder()
+    val fragmentComponent : FragmentComponent
+        get() = DaggerFragmentComponent.builder()
             .appComponent(KotlinGitApplication.instance.appComponent)
             .fragmentModule(fragmentModule)
             .build()

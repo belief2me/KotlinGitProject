@@ -7,7 +7,9 @@ import android.view.WindowManager
 import com.btlm.kotlingitproject.KotlinGitApplication
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.bean.app.Splash
+import com.btlm.kotlingitproject.constant.Constants
 import com.btlm.kotlingitproject.di.component.DaggerActivityComponent
+import com.btlm.kotlingitproject.di.module.ActivityModule
 import com.btlm.kotlingitproject.mvp.contract.app.SplashContract
 import com.btlm.kotlingitproject.mvp.presenter.app.SplashPresenter
 import com.btlm.kotlingitproject.utils.PrefsUtils
@@ -16,9 +18,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.jakewharton.rxbinding2.view.RxView
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.di.module.ActivityModule
 import kotlinx.android.synthetic.main.activity_splash.*
+
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -85,6 +86,7 @@ class SplashActivity : RxAppCompatActivity() , SplashContract.View{
         }
     }
     fun initInject(){
+
         DaggerActivityComponent.builder()
                 .appComponent(KotlinGitApplication.instance.appComponent)
                 .activityModule(ActivityModule(this))

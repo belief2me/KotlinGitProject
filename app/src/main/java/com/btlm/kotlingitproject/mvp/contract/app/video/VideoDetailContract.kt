@@ -1,8 +1,8 @@
 package com.btlm.kotlingitproject.mvp.contract.app.video
 
 import com.btlm.kotlingitproject.base.BaseContract
-import com.yoyiyi.soleil.bean.app.video.VideoDetail
-import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
+import com.btlm.kotlingitproject.bean.app.video.VideoDetail
+import com.btlm.kotlingitproject.bean.app.video.VideoDetailComment
 
 /**
  * Created by Administrator on 2017/12/21.

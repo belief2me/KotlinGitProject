@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.app.video
+package com.btlm.kotlingitproject.bean.app.video
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 

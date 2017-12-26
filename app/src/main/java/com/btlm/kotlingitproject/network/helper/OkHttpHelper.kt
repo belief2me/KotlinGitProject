@@ -1,11 +1,11 @@
 package com.btlm.kotlingitproject.network.helper
 
 import android.content.Context
+import com.btlm.kotlingitproject.network.support.ApiConstants
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.utils.FileUtils
 import com.btlm.kotlingitproject.utils.net.NetworkUtils
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.yoyiyi.soleil.network.support.ApiConstants
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File

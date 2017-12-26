@@ -3,7 +3,7 @@ package com.btlm.kotlingitproject.di.component
 import android.content.Context
 import com.btlm.kotlingitproject.di.module.ApiModule
 import com.btlm.kotlingitproject.di.module.AppModule
-import com.yoyiyi.soleil.network.helper.RetrofitHelper
+import com.btlm.kotlingitproject.network.helper.RetrofitHelper
 import dagger.Component
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.app.video
+package com.btlm.kotlingitproject.bean.app.video
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

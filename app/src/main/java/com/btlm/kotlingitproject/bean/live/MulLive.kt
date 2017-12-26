@@ -1,8 +1,6 @@
 package com.btlm.kotlingitproject.bean.live
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
-import com.yoyiyi.soleil.bean.live.LivePartition
-import com.yoyiyi.soleil.bean.live.LiveRecommend
 
 /**
  * Created by Administrator on 2017/12/20.

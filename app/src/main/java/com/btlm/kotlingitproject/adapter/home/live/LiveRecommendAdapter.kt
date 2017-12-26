@@ -2,12 +2,12 @@ package com.btlm.kotlingitproject.adapter.home.live
 
 import android.widget.ImageView
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.bean.live.LiveRecommend
 import com.btlm.kotlingitproject.utils.NumberUtils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.yoyiyi.soleil.bean.live.LiveRecommend
 
 /**
  * Created by Administrator on 2017/12/20.

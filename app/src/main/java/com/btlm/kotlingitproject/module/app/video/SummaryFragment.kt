@@ -2,11 +2,11 @@ package com.btlm.kotlingitproject.module.app.video
 
 import android.support.v7.widget.LinearLayoutManager
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.adapter.app.video.SummaryAdapter
 import com.btlm.kotlingitproject.base.BaseInjectFragment
+import com.btlm.kotlingitproject.bean.app.video.MulSummary
 import com.btlm.kotlingitproject.mvp.contract.app.video.SummaryContract
-import com.yoyiyi.soleil.adapter.app.video.SummaryAdapter
-import com.yoyiyi.soleil.bean.app.video.MulSummary
-import com.yoyiyi.soleil.mvp.presenter.app.video.SummaryPresenter
+import com.btlm.kotlingitproject.mvp.presenter.app.video.SummaryPresenter
 import kotlinx.android.synthetic.main.common_recycler.*
 
 /**

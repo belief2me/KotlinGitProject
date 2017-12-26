@@ -4,8 +4,8 @@ import android.view.View
 import com.btlm.kotlingitproject.KotlinGitApplication
 import com.btlm.kotlingitproject.di.component.ActivityComponent
 import com.btlm.kotlingitproject.di.component.DaggerActivityComponent
+import com.btlm.kotlingitproject.di.module.ActivityModule
 import com.btlm.kotlingitproject.ext.getComponent
-import com.yoyiyi.soleil.di.module.ActivityModule
 import javax.inject.Inject
 
 /**

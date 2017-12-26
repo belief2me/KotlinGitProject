@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.recommend
+package com.btlm.kotlingitproject.bean.recommend
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 

@@ -12,11 +12,11 @@ import android.view.MenuItem
 import android.view.View
 import android.webkit.*
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.constant.Constants
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.utils.ClipboardUtils
 import com.btlm.kotlingitproject.utils.ToastUtils
 import com.btlm.kotlingitproject.widget.statusbar.StatusBarUtil
-import com.yoyiyi.soleil.constant.Constants
 import kotlinx.android.synthetic.main.activity_brower.*
 import kotlinx.android.synthetic.main.common_toolbar.*
 import kotlinx.android.synthetic.main.layout_loading.*

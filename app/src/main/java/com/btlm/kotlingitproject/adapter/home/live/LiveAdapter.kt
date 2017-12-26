@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.bean.live.MulLive
+import com.btlm.kotlingitproject.bean.live.support.LiveEnter
 import com.btlm.kotlingitproject.ext.startAnim
 import com.btlm.kotlingitproject.module.app.BrowerActivity
 import com.btlm.kotlingitproject.utils.AppUtils
@@ -16,7 +17,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.youth.banner.Banner
-import com.yoyiyi.soleil.bean.live.support.LiveEnter
 import java.util.*
 
 /**

@@ -31,6 +31,14 @@
         </activity>
         <activity android:name=".module.app.video.VideoDetailActivity">
         </activity>
+        <activity android:name=".module.app.video.VideoPlayerActivity">
+        </activity>
+        <activity android:name=".module.bangumi.BangumiDetailActivity">
+        </activity>
+        <activity android:name=".module.region.RegionTypeActivity">
+        </activity>
+        <activity android:name=".module.search.SearchActivity"/>
+
     </application>
 
 </manifest>

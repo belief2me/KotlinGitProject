@@ -3,6 +3,8 @@ package com.btlm.kotlingitproject.adapter.home
 import android.content.Intent
 import android.widget.ImageView
 import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.bean.recommend.MulRecommend
+import com.btlm.kotlingitproject.bean.recommend.Recommend
 import com.btlm.kotlingitproject.ext.startAnim
 import com.btlm.kotlingitproject.module.app.BrowerActivity
 import com.btlm.kotlingitproject.module.app.video.VideoDetailActivity
@@ -13,8 +15,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.youth.banner.Banner
-import com.yoyiyi.soleil.bean.recommend.MulRecommend
-import com.yoyiyi.soleil.bean.recommend.Recommend
 
 /**
  * Created by Administrator on 2017/12/21.

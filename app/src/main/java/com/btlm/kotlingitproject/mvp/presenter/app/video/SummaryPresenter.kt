@@ -1,13 +1,13 @@
-package com.yoyiyi.soleil.mvp.presenter.app.video
+package com.btlm.kotlingitproject.mvp.presenter.app.video
 
 
 import com.btlm.kotlingitproject.base.BaseSubscriber
 import com.btlm.kotlingitproject.base.RxPresenter
+import com.btlm.kotlingitproject.bean.app.video.MulSummary
 import com.btlm.kotlingitproject.event.Event
 import com.btlm.kotlingitproject.mvp.contract.app.video.SummaryContract
 import com.btlm.kotlingitproject.rx.RxBus
 import com.btlm.kotlingitproject.rx.rxSchedulerHelper
-import com.yoyiyi.soleil.bean.app.video.MulSummary
 import javax.inject.Inject
 
 /**

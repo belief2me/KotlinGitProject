@@ -4,18 +4,18 @@ import android.support.v7.widget.GridLayoutManager
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.adapter.home.RecommendAdapter
 import com.btlm.kotlingitproject.base.BaseRefreshFragment
+import com.btlm.kotlingitproject.bean.recommend.MulRecommend
+import com.btlm.kotlingitproject.bean.recommend.Recommend
 import com.btlm.kotlingitproject.mvp.contract.home.RecommendContract
 import com.btlm.kotlingitproject.mvp.presenter.home.RecommendPresenter
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.widget.divider.VerticalDividerItemDecoration
-import com.yoyiyi.soleil.bean.recommend.MulRecommend
-import com.yoyiyi.soleil.bean.recommend.Recommend
 import kotlinx.android.synthetic.main.fragment_home_recommend.*
 
 /**
  * Created by Administrator on 2017/12/21.
  */
-class RecommendFragment : BaseRefreshFragment<RecommendPresenter,MulRecommend>(),RecommendContract.View{
+class RecommendFragment : BaseRefreshFragment<RecommendPresenter, MulRecommend>(),RecommendContract.View{
 
     private var mAdapter : RecommendAdapter? = null
 

@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import com.btlm.kotlingitproject.R
 import com.btlm.kotlingitproject.base.BaseActivity
+import com.btlm.kotlingitproject.constant.Constants
 import com.btlm.kotlingitproject.utils.AppUtils
 import com.btlm.kotlingitproject.utils.PrefsUtils
 import com.btlm.kotlingitproject.utils.ToastUtils
@@ -12,7 +13,6 @@ import com.btlm.kotlingitproject.utils.net.NetworkUtils
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.jakewharton.rxbinding2.widget.TextViewTextChangeEvent
-import com.yoyiyi.soleil.constant.Constants
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.concurrent.TimeUnit
 
