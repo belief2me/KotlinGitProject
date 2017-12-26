@@ -9,11 +9,19 @@ import com.btlm.kotlingitproject.base.BaseInjectFragment
 import com.btlm.kotlingitproject.bean.discover.HotSearchTag
 import com.btlm.kotlingitproject.constant.Constants
 import com.btlm.kotlingitproject.module.app.BrowerActivity
+import com.btlm.kotlingitproject.module.discover.ActivityCenterActivity
+import com.btlm.kotlingitproject.module.discover.GameCenterActivity
+import com.btlm.kotlingitproject.module.discover.InterestActivity
+import com.btlm.kotlingitproject.module.discover.TopicCenterActivity
+import com.btlm.kotlingitproject.module.recommend.AllStationRankActivity
+import com.btlm.kotlingitproject.module.region.AllRegionRankActivity
 import com.btlm.kotlingitproject.module.search.SearchActivity
+import com.btlm.kotlingitproject.module.search.TotalSearchActivity
 import com.btlm.kotlingitproject.mvp.contract.home.DiscoverContract
 import com.btlm.kotlingitproject.mvp.presenter.home.DiscoverPresenter
 import com.btlm.kotlingitproject.widget.flowlayout.FlowLayout
 import com.btlm.kotlingitproject.widget.flowlayout.TagAdapter
+
 import kotlinx.android.synthetic.main.fragment_home_discover.*
 
 /**
@@ -60,7 +68,6 @@ class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContra
                 mTags.setOnClickListener {
                     mContext?.startActivity(Intent(mContext, SearchActivity::class.java))
                 }
-
                 return mTags
             }
         }
@@ -70,10 +77,10 @@ class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContra
                         .inflate(R.layout.layout_hot_tags_item, parent, false) as TextView
                 mTags.text = listBean.keyword
                 mTags.setOnClickListener {
-//                    TotalSearchActivity.startActivity(mContext!!, listBean.keyword)
+                    TotalSearchActivity.startActivity(mContext!!, listBean.keyword)
                 }
                 mTags.setOnClickListener {
-//                    mContext?.startActivity(Intent(mContext, SearchActivity::class.java))
+                    mContext?.startActivity(Intent(mContext, SearchActivity::class.java))
                 }
                 return mTags
             }
@@ -119,18 +126,18 @@ class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContra
             -> BrowerActivity.startActivity(activity, Constants.SHOP_URL, "bilibili - 周边商城", "")
             R.id.rl_black_list//小黑屋
             -> BrowerActivity.startActivity(activity, Constants.BLACK_URL, "小黑屋", "")
-//            R.id.rl_rank_all//全站排行
-//            -> AllRegionRankActivity.startActivity(activity, "番剧")
-//            R.id.rl_game//游戏中心
-//            -> startActivity(Intent(getApplicationContext(), GameCenterActivity::class.java))
-//            R.id.rl_topic_center//话题中心
-//            -> startActivity(Intent(getApplicationContext(), TopicCenterActivity::class.java))
-//            R.id.rl_activity_center//活动中心
-//            -> startActivity(Intent(getApplicationContext(), ActivityCenterActivity::class.java))
-//            R.id.rl_group
-//            -> startActivity(Intent(getApplicationContext(), InterestActivity::class.java))
-//            R.id.rl_rank_original//原创排行
-//            -> startActivity(Intent(getApplicationContext(), AllStationRankActivity::class.java))
+            R.id.rl_rank_all//全站排行
+            -> AllRegionRankActivity.startActivity(activity, "番剧")
+            R.id.rl_game//游戏中心
+            -> startActivity(Intent(getApplicationContext(), GameCenterActivity::class.java))
+            R.id.rl_topic_center//话题中心
+            -> startActivity(Intent(getApplicationContext(), TopicCenterActivity::class.java))
+            R.id.rl_activity_center//活动中心
+            -> startActivity(Intent(getApplicationContext(), ActivityCenterActivity::class.java))
+            R.id.rl_group
+            -> startActivity(Intent(getApplicationContext(), InterestActivity::class.java))
+            R.id.rl_rank_original//原创排行
+            -> startActivity(Intent(getApplicationContext(), AllStationRankActivity::class.java))
 
         }
 

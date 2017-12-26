@@ -26,7 +26,7 @@ abstract class BaseSearchFragment<T : BaseContract.BasePresenter<*>, K> : BaseIn
 
     override fun initWidget() {
         mIvSearchLoad = mRootView?.findViewById<ImageView>(R.id.iv_search_load)
-        mRecycler = mRootView?.findViewById<ImageView>(R.id.recycler) as RecyclerView?
+        mRecycler = mRootView?.findViewById<RecyclerView>(R.id.recycler)
         initRecyclerView()
     }
 

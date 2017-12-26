@@ -1,13 +1,7 @@
 package com.btlm.kotlingitproject.di.module
 
-import com.btlm.kotlingitproject.di.qualifier.ApiUrl
-import com.btlm.kotlingitproject.di.qualifier.AppUrl
-import com.btlm.kotlingitproject.di.qualifier.BangumiUrl
-import com.btlm.kotlingitproject.di.qualifier.LiveUrl
-import com.btlm.kotlingitproject.network.api.ApiService
-import com.btlm.kotlingitproject.network.api.AppService
-import com.btlm.kotlingitproject.network.api.BangumiService
-import com.btlm.kotlingitproject.network.api.LiveService
+import com.btlm.kotlingitproject.di.qualifier.*
+import com.btlm.kotlingitproject.network.api.*
 import com.btlm.kotlingitproject.network.helper.OkHttpHelper
 import com.btlm.kotlingitproject.network.helper.RetrofitHelper
 import com.btlm.kotlingitproject.network.support.ApiConstants
@@ -44,8 +38,8 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitHelper(appService: AppService, liveService: LiveService, apiService : ApiService, bangumiService: BangumiService): RetrofitHelper
-            = RetrofitHelper(appService,liveService,apiService,bangumiService)
+    fun provideRetrofitHelper(appService: AppService, liveService: LiveService, apiService : ApiService, bangumiService: BangumiService,rankService: RankService,im9Service: Im9Service): RetrofitHelper
+            = RetrofitHelper(appService,liveService,apiService,bangumiService,rankService,im9Service)
 
     @Singleton
     @Provides
@@ -93,5 +87,29 @@ class ApiModule {
     @Provides
     fun provideBangumiService(@BangumiUrl retrofit: Retrofit): BangumiService
             = retrofit.create<BangumiService>(BangumiService::class.java)
+    @Singleton
+    @Provides
+    @RankUrl
+    fun provideRankRetrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit
+            = createRetrofit(builder, client, ApiConstants.RANK_BASE_URL)
+
+
+    @Singleton
+    @Provides
+    fun provideRankService(@RankUrl retrofit: Retrofit): RankService
+            = retrofit.create<RankService>(RankService::class.java)
+
+    @Singleton
+    @Provides
+    @Im9Url
+    fun provideIm9Retrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit
+            = createRetrofit(builder, client, ApiConstants.IM9_BASE_URL)
+
+
+    @Singleton
+    @Provides
+    fun provideIm9Service(@Im9Url retrofit: Retrofit): Im9Service
+            = retrofit.create<Im9Service>(Im9Service::class.java)
+
 
 }

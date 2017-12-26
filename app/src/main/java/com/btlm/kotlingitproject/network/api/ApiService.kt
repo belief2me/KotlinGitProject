@@ -2,8 +2,11 @@ package com.btlm.kotlingitproject.network.api
 
 import com.btlm.kotlingitproject.bean.app.video.VideoDetailComment
 import com.btlm.kotlingitproject.bean.bangumi.BangumiDetailComment
+import com.btlm.kotlingitproject.bean.discover.ActivityCenter
+import com.btlm.kotlingitproject.bean.discover.TopicCenter
 import io.reactivex.Flowable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by Administrator on 2017/12/21.
@@ -21,5 +24,19 @@ interface ApiService {
      */
     @GET("x/v2/reply?access_key=ccfbb1b10ce8ab8418a2e00b9ca9a3a0&appkey=1d8b6e7d45233436&build=505000&mobi_app=" + "android&oid=9716141&plat=2&platform=android&pn=1&ps=20&sort=0&ts=1497169314&type=1&sign=ecca925ba55cecd151b5839f19d57657")
     fun getBangumiDetailComment(): Flowable<BangumiDetailComment>
+
+    /**
+     * 话题中心
+     */
+    @GET("topic/getlist?device=phone&mobi_app=iphone&page=1&pagesize=137")
+    fun getTopicCenter(): Flowable<TopicCenter>
+
+
+    /**
+     * 活动中心
+     */
+    @GET("event/getlist?device=phone&mobi_app=iphone")
+    fun getActivityCenter(@Query("page") page: Int, @Query("pagesize") pageSize: Int): Flowable<ActivityCenter>
+
 
 }

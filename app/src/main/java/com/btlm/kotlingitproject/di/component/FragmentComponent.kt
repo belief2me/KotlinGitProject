@@ -5,10 +5,16 @@ import com.btlm.kotlingitproject.di.module.FragmentModule
 import com.btlm.kotlingitproject.di.scope.FragmentScope
 import com.btlm.kotlingitproject.module.app.video.CommentFragment
 import com.btlm.kotlingitproject.module.app.video.SummaryFragment
+import com.btlm.kotlingitproject.module.discover.InterestFragment
 import com.btlm.kotlingitproject.module.home.*
+import com.btlm.kotlingitproject.module.recommend.AllStationRankFragment
+import com.btlm.kotlingitproject.module.region.AllRegionRankFragment
 import com.btlm.kotlingitproject.module.region.RegionTypeFragment
 import com.btlm.kotlingitproject.module.region.RegionTypeRecommendFragment
 import com.btlm.kotlingitproject.module.search.ArchiveFragment
+import com.btlm.kotlingitproject.module.search.MovieFragment
+import com.btlm.kotlingitproject.module.search.SeasonFragment
+import com.btlm.kotlingitproject.module.search.UpFragment
 import dagger.Component
 
 /**
@@ -35,5 +41,12 @@ interface FragmentComponent {
 
     fun inject(discoverFragment: DiscoverFragment)
     fun inject(archiveFragment : ArchiveFragment)
+    fun inject(seasonFragment: SeasonFragment)
+    fun inject(upFragment: UpFragment)
+    fun inject(movieFragment: MovieFragment)
+    fun inject(allRegionRankFragment: AllRegionRankFragment)
+    fun inject(interestFragment: InterestFragment)
+    fun inject(allStationRankFragment: AllStationRankFragment)
+    fun inject(archiveFragment: com.btlm.kotlingitproject.module.app.up.ArchiveFragment)
 
 }

@@ -7,7 +7,8 @@ import com.btlm.kotlingitproject.bean.discover.HotSearchTag
 import com.btlm.kotlingitproject.bean.region.Region
 import com.btlm.kotlingitproject.bean.region.RegionRecommend
 import com.btlm.kotlingitproject.bean.region.RegionType
-import com.btlm.kotlingitproject.bean.search.Search
+import com.btlm.kotlingitproject.bean.search.*
+import com.btlm.kotlingitproject.bean.user.UpDetail
 import com.btlm.kotlingitproject.network.response.HttpResponse
 import io.reactivex.Flowable
 import retrofit2.http.GET
@@ -27,6 +28,13 @@ interface AppService {
     @GET("/x/v2/splash?mobi_app=android&build=505000&channel=360&width=1080&height=1920&ver=4344558841496142006")
      fun getSplash(): Flowable<Splash>
 
+    /**
+     * up主详情界面
+
+     * @return
+     */
+    @GET("/x/v2/space?access_key=91c3f4aa6761385fd99998b4f07e193f&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ps=20&ts=1497595431&vmid=12617707&sign=465dc5c1d330999eb86514482cc7a1f3")
+    fun getUpDetail(): Flowable<UpDetail>
 
     /**
      * 视频详情
@@ -76,6 +84,42 @@ interface AppService {
      */
     @GET("/x/v2/search?access_key=a1ad8aad60bddd751a4d417e2ab4a87e&appkey=1d8b6e7d45233436&build=505000&duration=0&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497764672&sign=5f83c141d366f7fda8f7d5df8c584b50")
     fun getSearch(): Flowable<Search>
+
+    /**
+     * 番剧
+
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848586&type=1&sign=32ee9a1e077484a2d13d924df44f1ab4")
+    fun getSeason(): Flowable<Season>
+
+    /**
+     * up
+
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848618&type=2&sign=36f143a24d2266a9e949aa4206297c4a")
+    fun getUp(): Flowable<Up>
+
+
+    /**
+     * 影视
+
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848643&type=3&sign=b1f279d5b3cdeed4837ed910515cdf43")
+    fun getMovie(): Flowable<Movie>
+
+
+    /**
+     * 综合搜索
+     */
+    @GET("x/v2/search?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&duration=0&mobi_app=iphone&order=default&platform=ios&rid=0")
+    fun getSearchArchive(
+            @Query("keyword") keyword: String, @Query("pn") page: Int, @Query("ps") pagesize: Int): Flowable<HttpResponse<SearchArchive>>
+
+
+
 
 
 

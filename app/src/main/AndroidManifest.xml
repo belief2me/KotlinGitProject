@@ -38,7 +38,13 @@
         <activity android:name=".module.region.RegionTypeActivity">
         </activity>
         <activity android:name=".module.search.SearchActivity"/>
-
+        <activity android:name=".module.region.AllRegionRankActivity">
+        </activity>
+        <activity android:name=".module.discover.InterestActivity"/>
+        <activity android:name=".module.discover.ActivityCenterActivity"/>
+        <activity android:name=".module.discover.AllGameActivity"/>
+        <activity android:name=".module.discover.GameCenterActivity"/>
+        <activity android:name=".module.discover.TopicCenterActivity"/>
     </application>
 
 </manifest>

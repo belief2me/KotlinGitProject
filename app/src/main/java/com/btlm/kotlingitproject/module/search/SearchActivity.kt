@@ -50,12 +50,9 @@ class SearchActivity : BaseRegionActivity<SearchPresenter, Nullable>(), SearchCo
 
     override fun initFragment() {
         mFragment.add(ArchiveFragment.newsInstance())
-        mFragment.add(ArchiveFragment.newsInstance())
-        mFragment.add(ArchiveFragment.newsInstance())
-        mFragment.add(ArchiveFragment.newsInstance())
-//        mFragment.add(SeasonFragment.newsInstance())
-//        mFragment.add(UpFragment.newsInstance())
-//        mFragment.add(MovieFragment.newsInstance())
+        mFragment.add(SeasonFragment.newsInstance())
+        mFragment.add(UpFragment.newsInstance())
+        mFragment.add(MovieFragment.newsInstance())
 
     }
 

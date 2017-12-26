@@ -1,0 +1,132 @@
+package com.btlm.kotlingitproject.module.discover
+
+import android.support.v7.widget.LinearLayoutManager
+import com.btlm.kotlingitproject.R
+import com.btlm.kotlingitproject.adapter.discover.ActivityCenterAdapter
+import com.btlm.kotlingitproject.base.BaseRefreshActivity
+import com.btlm.kotlingitproject.bean.discover.ActivityCenter
+import com.btlm.kotlingitproject.mvp.contract.discover.ActivityCenterContract
+import com.btlm.kotlingitproject.mvp.presenter.discover.ActivityCenterPresenter
+import com.btlm.kotlingitproject.utils.AppUtils
+import com.btlm.kotlingitproject.utils.net.NetworkUtils
+import com.btlm.kotlingitproject.widget.CustomLoadMoreView
+
+import com.chad.library.adapter.base.BaseQuickAdapter
+
+
+/**
+ * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
+ * *
+ * @date 创建时间：2017/6/5 22:28
+ * * 描述:活动中心
+ */
+class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, ActivityCenter.ListBean>(), ActivityCenterContract.View, BaseQuickAdapter.RequestLoadMoreListener {
+
+    private var mAdapter: ActivityCenterAdapter? = null
+    private var mPage = 1
+    private var mTotal = 0
+    private var mIsError = false
+    private var mIsLoadMore = false
+
+    override fun getLayoutId(): Int = R.layout.activity_topic_center
+
+    companion object {
+        private val PS = 20
+    }
+
+    override fun initToolbar() {
+        super.initToolbar()
+        mToolbar?.title = "活动中心"
+    }
+
+    override fun loadData() {
+        mPresenter.getActivityCenterData(mPage, PS)
+    }
+
+    override fun clearData() {
+        super.clearData()
+        mPage = 1
+        mIsLoadMore = false
+        mIsError = false
+        //刷新时候关闭上拉加载
+        mAdapter?.setEnableLoadMore(false)
+    }
+
+    override fun initInject() {
+        activityComponent.inject(this)
+    }
+
+    override fun initPresenter() {
+        mPresenter.attachView(this)
+    }
+
+    override fun initRecyclerView() {
+        mAdapter = ActivityCenterAdapter(mList)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        mRecycler?.layoutManager = layoutManager
+        mRecycler?.adapter = mAdapter
+        mAdapter?.setLoadMoreView(CustomLoadMoreView())
+        //设置加载更多监听
+        mAdapter?.setOnLoadMoreListener(this, mRecycler)
+    }
+
+
+    override fun finishTask() {
+        mAdapter?.setNewData(mList)
+    }
+
+    override fun showActivityCenter(listBeanList: List<ActivityCenter.ListBean>, total: Int) {
+        if (!mIsLoadMore) {
+            mList?.addAll(listBeanList)
+            mTotal = total//总数
+            finishTask()
+        } else {
+            //加载更多
+            mAdapter?.addData(listBeanList)
+            mAdapter?.loadMoreComplete()//加载完成
+        }
+    }
+
+    override fun onLoadMoreRequested() {
+        AppUtils.runOnUIDelayed({
+            //加载更多
+            mAdapter?.itemCount?.let {
+                if (it > mTotal) {
+                    mAdapter?.loadMoreEnd()//结束加载
+                } else {
+                    if (!mIsError) {
+                        mPage++
+                        loadData()
+                    } else {
+                        mIsError = true
+                        mAdapter?.loadMoreFail()//加载失败
+                    }
+                }
+            }
+        }, 650)
+
+
+    }
+
+    override fun showError(msg: String) {
+        super.showError(msg)
+        mPage--
+        mIsError = true
+    }
+
+    override fun complete() {
+        super.complete()
+        //需要重新开启监听
+        mAdapter?.setEnableLoadMore(true)
+    }
+
+    override fun initWidget() {
+        super.initWidget()
+        NetworkUtils.OnChangeInternetListener {
+            mIsError = !it
+            if (!mIsError) {
+                mAdapter?.setEnableLoadMore(true)
+            }
+        }
+    }
+}
